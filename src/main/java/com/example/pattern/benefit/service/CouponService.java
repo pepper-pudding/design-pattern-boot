@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class CouponService implements Runnable {
+    // 커멘더 패턴
     private CouponApiService couponApiService;
 
     public CouponService(CouponApiService couponApiService) {

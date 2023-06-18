@@ -24,6 +24,7 @@ public class OrderController {
      */
     @GetMapping
     public void order(Order order) {
+        // 옵저버 패턴
         orderService.order(order);
 
         //eventPublisher.publishEvent(new OrderEvent(order.getId(), OrderType.CREATE));

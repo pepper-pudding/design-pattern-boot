@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class FlyWeightPatternTest {
+    // 플라이웨이트 패턴 : 인스턴스가 필요할 때마다 매번 생성하는 것이 아니고 가능한 한 공유해서 사용함으로써 메모리를 절약하는 패턴
     @Test
     void 스트링_플라이웨이트패턴_테스트() {
+
         String str1 = "Hello";
         String str2 = "Hello";
         String str3 = new String("Hello");
@@ -29,12 +31,12 @@ public class FlyWeightPatternTest {
 
     @Test
     void Integer_플라이웨이트패턴_테스트() {
+        // 플라이웨이트 패턴
         Integer integer1 = Integer.valueOf("123");
         Integer integer2 = Integer.valueOf("123");
 
         // 서로 같다!
         Assertions.assertSame(integer1, integer2);
-
 
         Integer integer3 = Integer.valueOf("128");
         Integer integer4 = Integer.valueOf("128");
@@ -42,6 +44,7 @@ public class FlyWeightPatternTest {
         // 서로 다르다!
         Assertions.assertNotSame(integer3, integer4);
 
-        //직접 Integer.valueOf 함수 확인해보기!!!!
+        // 직접 Integer.valueOf 함수 확인해보기!!!!
+        // Integer.valueOf의 내부 구현을 살펴보면, 파라미터 값이 126보다 작으면 공용풀을 사용하지만 크면 아예 다른 인스턴스를 사용하도록 되어 있음
     }
 }

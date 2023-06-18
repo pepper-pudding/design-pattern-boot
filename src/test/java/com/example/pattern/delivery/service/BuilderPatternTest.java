@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 public class BuilderPatternTest {
     @Test
     void Order객체_빌더패턴_테스트() {
+        // 빌더 패턴 사용 시 장점 : set할 인자를 구분하기 쉽고, 실수할 일이 적다.
         OrderDto order = OrderDto.builder().id(1L).vehicleType(VehicleType.SHIP)
                 .address("경기도 성남시 분당구 정자동").build();
         System.out.println("order 객체 : " + order.toString());

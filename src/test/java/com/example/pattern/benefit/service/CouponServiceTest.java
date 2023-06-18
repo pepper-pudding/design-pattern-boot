@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 class CouponServiceTest {
+    // 커멘더 패턴
     @Test
     void 혜택_발송_스레드_테스트() throws InterruptedException {
         int numberOfThreads = 5;
@@ -20,6 +21,10 @@ class CouponServiceTest {
             executorService.execute(() -> {
                 doThread.run();
                 latch.countDown();
+            });
+            // 만약에 위 방법을 사용하지 않고 람다를 사용한다면?
+            executorService.execute(() -> {
+
             });
         }
         latch.await();

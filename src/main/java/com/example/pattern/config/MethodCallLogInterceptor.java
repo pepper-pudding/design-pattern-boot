@@ -10,6 +10,7 @@ import java.lang.reflect.Method;
 public class MethodCallLogInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+        // 프록시 패턴
         log.info("주문에 대한 호출 기록을 남깁니다. (before)");
         Object returnValue = proxy.invokeSuper(obj, args);
         log.info("주문에 대한 호출 기록을 남깁니다. (after)");

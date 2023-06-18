@@ -29,8 +29,15 @@ public class MemberService {
         Member save = memberRepository.save(member);
         log.info("새로운 멤버가 생성되었습니다 : " + save.toString());
 
-//        ModelMapper modelMapper = new ModelMapper();
-//        MemberDto map = modelMapper.map(save, MemberDto.class);
+        // member.setPhoneNumber("010-0000-0000");
+        // 이렇게 하면 member가 연속성 개체여서 업데이트 쿼리가 날아간다.
+        // 그래서 DB에 원래 전화번호가 null로 들어가야 하는데 010-0000-0000가 들어간다.
+
+        // ModelMapper modelMapper = new ModelMapper();
+        // MemberDto map = modelMapper.map(save, MemberDto.class);
+        // 이렇게 하는 게 좋다. Entity 객체를 Dto에 맞게 집어 넣어준다.
+        // 밖에서 쓸 때는 Dto를 리턴해서 사용하는 방식이다.
+        // 먼 소린지 아주 정확히는 이해가 안 된당ㅋ
 
         return save;
     }

@@ -8,6 +8,9 @@ import java.math.BigInteger;
 
 @Slf4j
 public class PhoneMethodService implements PaymentMethod {
+    // 브릿지 패턴
+    // 핸드폰 결제에 관련된 함수가 구현되어 있음
+
     @Override
     public boolean checkValid(Member member) {
         log.info("{} 회원님의 핸드폰 인증 확인이 완료 되었습니다. 핸드폰번호 : {}", member.getName(), member.getPhoneNumber());

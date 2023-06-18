@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public abstract class Review {
+    // 템플릿 메서드 패턴
+
     public void review() {
         //부모 클래스에서 알고리즘의 골격을 정의
         login();

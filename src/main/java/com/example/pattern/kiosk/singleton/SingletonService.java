@@ -2,6 +2,7 @@ package com.example.pattern.kiosk.singleton;
 
 public class SingletonService {
     private static final SingletonService instance = new SingletonService();
+    // private 생성자를 만들었을 때의 장점 : 객체 생성 불가
 
     public static SingletonService getInstance() {
         return instance;

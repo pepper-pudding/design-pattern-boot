@@ -12,6 +12,7 @@ import java.util.Map;
 @RequestMapping("reviews")
 @RequiredArgsConstructor
 public class ReviewController {
+    // 템플릿 메서드 패턴
     private final Map<String, Review> reviewService;
 
     /**

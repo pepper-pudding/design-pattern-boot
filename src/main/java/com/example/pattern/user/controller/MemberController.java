@@ -24,6 +24,7 @@ public class MemberController {
         Member member = memberService.saveMember(snsType, token);
 
         //member.setSnsType("kakao");
+        //여기서 set을 해도 DB에 들어간다.
         //memberService.emptyLogic();
         return member;
     }

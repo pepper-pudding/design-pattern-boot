@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 public class OrderListener {
     @EventListener
     public void onApplicationEvent(OrderEvent event) {
+        // 옵저버 패턴
         log.info("주문이벤트 Published [orderId : {}, orderType : {}]", event.getOrderId(), event.getOrderType().toString());
         log.info("이후 리뷰 알림 발송이 시작됩니다.");
         log.info("이후 정산 API 호출이 시작됩니다.");

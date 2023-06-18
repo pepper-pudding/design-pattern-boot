@@ -7,6 +7,9 @@ import java.math.BigInteger;
 
 @Slf4j
 public class CardMethodService implements PaymentMethod {
+    // 브릿지 패턴
+    // 카드 결제에 대한 함수가 구현되어 있음
+
     @Override
     public boolean checkValid(Member member) {
         log.info("{} 회원님의 카드 확인이 완료 되었습니다. 계좌번호 : {}", member.getName(), member.getAccountNumber());

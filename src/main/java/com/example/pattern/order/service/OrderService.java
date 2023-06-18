@@ -24,17 +24,18 @@ public class OrderService {
     private PaymentService paymentService;
 
     public void order(Order order) {
+        // 브릿지 패턴
         Optional<Member> findMember = memberRepository.findById(order.getMemberId());
         Member member = findMember.orElse(new Member(1L, "비회원주문", "test@email.com", null, "010-123-4567", "123-456-1234567"));
 
         // 결제
         paymentService.pay(order.getAmount(), member);
-//        if (StringUtils.isNotEmpty(member.getAccountNumber())) {
-//            paymentService.setPaymentMethod(new CardMethodService());
-//        } else if (StringUtils.isNotEmpty(member.getPhoneNumber())) {
-//            paymentService.setPaymentMethod(new PhoneMethodService());
-//        }
-//        paymentService.pay1(order.getAmount(), member);
+        if (StringUtils.isNotEmpty(member.getAccountNumber())) {
+            paymentService.setPaymentMethod(new CardMethodService());
+        } else if (StringUtils.isNotEmpty(member.getPhoneNumber())) {
+            paymentService.setPaymentMethod(new PhoneMethodService());
+        }
+        paymentService.pay1(order.getAmount(), member);
 
         // 배송
         deliveryService.deliver(order);

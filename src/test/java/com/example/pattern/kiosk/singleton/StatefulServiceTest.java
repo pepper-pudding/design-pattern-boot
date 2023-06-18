@@ -16,6 +16,8 @@ class StatefulServiceTest {
 
     @Test
     void Stateful_서비스_테스트() throws InterruptedException {
+        // 싱글톤 패턴
+        // 이해 안댓음ㅋ
         int numberOfThreads = 10;
         ExecutorService service = Executors.newFixedThreadPool(10);
         CountDownLatch latch = new CountDownLatch(numberOfThreads);
